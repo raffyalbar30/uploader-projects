@@ -1,6 +1,7 @@
 
 import './App.css'
-import Testing from './Components/testing'
+import Search from './Components/UI/Search'
+// import Testing from './Components/testing'
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <>
       <div>
           <p>heloo world</p>
-          <Testing></Testing>
+          <Search></Search>
       </div>
     </>
   )
