@@ -7,9 +7,9 @@ import LoginForm from "./component/Login-form";
       //------------------ LOGIN----------------------//
        <div className="flex justify-center">
           <section className="mt-24 rounded-lg">
-            <div className=" grid grid-cols-2 gap-x-2 ">
-              <LoginForm />
+            <div className=" grid grid-cols-2 border w-[600px] h-[470px] ">
               <Benner />
+              <LoginForm />
             </div>
           </section>
        </div>

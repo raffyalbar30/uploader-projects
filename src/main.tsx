@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
          <Route path ="/table" element={<Table />}></Route>
         </Routes>
       </Router>
-  </React.StrictMode>,
+  </React.StrictMode>
   </QueryClientProvider>
 
 )

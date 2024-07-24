@@ -1,4 +1,7 @@
-import { FaUsers } from "react-icons/fa6";
+import { IoEyeSharp } from "react-icons/io5";
+import { FcGoogle } from "react-icons/fc";
+import { SiFacebook } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 import { Loginschema, useLogin, values } from "../../../services/auth-services";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -10,7 +13,6 @@ const LoginForm = () => {
     const { register, handleSubmit } = useForm<Loginschema>({
          resolver : zodResolver(values),
     });
-
      const {mutateAsync : Login} = useLogin();
      const onSumbit = handleSubmit( async (e) => {
           try {
@@ -21,29 +23,56 @@ const LoginForm = () => {
          
      });
     return (
-        <div className="flex justify-center bg-zinc-800 shadow-lg  w-full h-full p-4">
-        <div className="mt-6">
-         <div className="flex justify-center">
-           <FaUsers className="text-7xl"/>
-         </div>
-            <div className="flex-wrap mt-6">
-             <form action="" onSubmit={onSumbit}>
+        <div className=" bg-slate-200 shadow-lg  w-full h-full p-4">
+            <div className="ml-2">
+                <p className="text-slate-950 font-bold text-left ml-2 text-4xl pb-1">Login</p>
+                 <p className="text-[12px] ml-1 text-slate-950 font-semibold">Don't have an account ? <span className="text-purple-800 font-semibold">Create account now</span> </p>
+            </div>
+            <div className="mt-12">
+            <form action="" onSubmit={onSumbit}>
+                <div className="border-b w-full border-purple-600">
                  <input  
-                 className="text-violet11 shadow-violet7 mb-1 focus:shadow-violet8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"       
-                 type="text"
-                 placeholder="example@gmail.com"
+                 className="appearance-none bg-transparent w-full text-gray-700 mr-3 font-semibold py-1 px-2 placeholder:text-gray-400 leading-tight focus:outline-none" 
+                 type="text" placeholder="example@gmail.com" 
+                 aria-label="Full name"
                  {...register("email")}
                  />  
-               <input
-                className="text-violet11 mt-4 shadow-violet7 focus:shadow-violet8 inline-flex h-[35px] w-full flex-1 items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px]"
-                type="text"
-                 placeholder="Password" 
+                </div>
+                <div className="border-b w-full border-purple-600 mt-8">
+                 <div className="flex justify- items-center">
+                  <input  
+                 className="appearance-none bg-transparent w-full text-gray-700 mr-3 font-semibold py-1 px-2 placeholder:text-gray-400 leading-tight focus:outline-none" 
+                 type="text" placeholder="Password" 
+                 aria-label="Full name"
                  {...register("password")}
-               />
-                <button type="submit" className="mt-4 cursor-pointer bg-gray-700 w-full py-2 rounded-md text-lg">Login Now</button>
-             </form>
+                 />  
+                 <span className="text-gray-400 text-[18px] cursor-pointer">
+                   <IoEyeSharp />
+                 </span>
+                </div>
+                </div>
+                <div className="flex justify-between w-full mt-4">
+                   <div className="flex gap-x-1 items-center">
+                    <input type="checkbox" id="rememberme" className="bg-transparent border border-slate-800"/>
+                    <span className="text-gray-700 text-[12px] font-semibold">Remember me</span>
+                   </div>
+                  <span className="text-purple-800 text-[12px] font-bold cursor-pointer">Forget password?</span>
+                </div>
+                <button type="submit" className="cursor-pointer bg-purple-700 mt-9 w-full py-2 rounded-md text-lg">
+                    <span className="text-gray-200 font-semibold">Sign Up Now</span>
+                </button>
+            </form>
+            <div className="relative flex py-5 items-center">
+              <div className="flex-grow border-t border-gray-400 ml-8"></div>
+                <span className="flex-shrink mx-2 text-[12px] text-gray-400">Or Login With</span>
+               <div className="flex-grow border-t border-gray-400 mr-8"></div>
             </div>
-         </div>
+            <div className="flex gap-x-6 justify-center items-center text-[32px] cursor-pointer">
+                <span><FcGoogle/></span>
+                <span className="text-gray-800"><SiFacebook/></span>
+                <span className="text-gray-800"><SiGithub /></span>
+            </div>
+            </div>
        </div>
     );
 }
