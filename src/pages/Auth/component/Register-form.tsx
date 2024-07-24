@@ -1,32 +1,24 @@
+import { useForm } from "react-hook-form";
+import { Registerschema, valuesregis } from "../../../services/auth-services";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { IoEyeSharp } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
-import { SiFacebook } from "react-icons/si";
-import { SiGithub } from "react-icons/si";
-import { Loginschema, useLogin, values } from "../../../services/auth-services";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { SiFacebook, SiGithub } from "react-icons/si";
 
 
 
-const LoginForm = () => {
-
-    const { register, handleSubmit } = useForm<Loginschema>({
-         resolver : zodResolver(values),
-    });
-     const {mutateAsync : Login} = useLogin();
-     const onSumbit = handleSubmit( async (e) => {
-          try {
-              await Login(e);
-          } catch (error) {
-              console.log(error);
-          }
-         
-     });
+const RegisterForm = () => {
+    const {register, handleSubmit} = useForm<Registerschema>({
+         resolver : zodResolver(valuesregis),
+    })
+    const onSumbit = handleSubmit((e)=> {
+       console.log(e.email)
+    })
     return (
         <div className=" bg-slate-100 shadow-lg  w-full h-full p-4">
             <div className="ml-2">
-                <p className="text-slate-950 font-bold text-left ml-2 text-4xl pb-1">Login</p>
-                 <p className="text-[12px] ml-1 text-slate-950 font-semibold">Don't have an account ? <span className="text-purple-800 font-semibold">Create account now</span> </p>
+                <p className="text-slate-950 font-bold text-left ml-2 text-4xl pb-1">Register</p>
+                <p className="text-[12px] text-slate-950 font-semibold mr-12">You have an account ? <span className="text-purple-800 font-semibold">Sign up now</span></p>
             </div>
             <div className="mt-12">
             <form action="" onSubmit={onSumbit}>
@@ -51,15 +43,21 @@ const LoginForm = () => {
                  </span>
                 </div>
                 </div>
-                <div className="flex justify-between w-full mt-4">
-                   <div className="flex gap-x-1 items-center">
-                    <input type="checkbox" id="rememberme" className="bg-transparent border border-slate-800"/>
-                    <span className="text-gray-700 text-[12px] font-semibold">Remember me</span>
-                   </div>
-                  <span className="text-purple-800 text-[12px] font-bold cursor-pointer">Forget password?</span>
+                <div className="border-b w-full border-purple-600 mt-8">
+                 <div className="flex justify- items-center">
+                  <input  
+                 className="appearance-none bg-transparent w-full text-gray-700 mr-3 font-semibold py-1 px-2 placeholder:text-gray-400 leading-tight focus:outline-none" 
+                 type="text" placeholder="Confirm Password" 
+                 aria-label="Full name"
+                 {...register("confirm")}
+                 />  
+                 <span className="text-gray-400 text-[18px] cursor-pointer">
+                   <IoEyeSharp />
+                 </span>
                 </div>
-                <button type="submit" className="cursor-pointer text-gray-200 font-semibold bg-purple-700 mt-9 w-full py-2 rounded-md text-lg">
-                    Sign Up Now
+                </div>
+                <button type="submit" className="cursor-pointer text-gray-200 font-semibold bg-purple-700 mt-12 w-full py-2 rounded-md text-lg">
+                     Register now
                 </button>
             </form>
             <div className="relative flex py-5 items-center">
@@ -77,4 +75,4 @@ const LoginForm = () => {
     );
 }
 
-export default LoginForm;
+export default RegisterForm;

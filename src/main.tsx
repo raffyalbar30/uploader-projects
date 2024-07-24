@@ -7,6 +7,7 @@ import App from './App.tsx'
 import './index.css'
 import Table from './pages/Table.tsx';
 import Loginpage from './pages/Auth/Loginpage.tsx';
+import Registerpage from './pages/Registerpage.tsx';
 const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Routes>
          <Route path ="/" element={<App />}></Route>
          <Route path ="/auth/Login" element={<Loginpage />}></Route>
+         <Route path ="/auth/Register" element={<Registerpage />}></Route>
          <Route path ="/table" element={<Table />}></Route>
         </Routes>
       </Router>

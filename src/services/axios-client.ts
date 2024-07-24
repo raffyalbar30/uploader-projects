@@ -1,7 +1,4 @@
  import axios from "axios";
-
-
-
  //  Todo env
  const endpoint = "https://reqres.in/";
 
