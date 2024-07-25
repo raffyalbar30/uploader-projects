@@ -1,8 +1,7 @@
 
-
    const Benner = () => {
     return (
-        <div className="w-full h-full relative group">
+        <div className="w-full h-full relative">
             <img src="/img/auth.png" alt="" />
         </div>
     );

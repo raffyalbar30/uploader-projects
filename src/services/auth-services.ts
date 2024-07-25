@@ -1,10 +1,12 @@
  import { useMutation } from "@tanstack/react-query";
  import { z } from "zod";
  import { Makecallapi } from "./axios-client";
+ import Validate from "./hooks/validate";
+ 
 
  
   export const values = z.object({
-     email : z.string().min(3, "tiga char").max(20, "enambelas char"),
+     email : z.string().min(3, "tiga char").max(32, "enambelas char"),
      password : z.string().min(8, "char password")
   });
 
@@ -14,7 +16,6 @@
     confirm :  z.string().min(8, "char password")
   })
 
-
   export type Registerschema = z.infer<typeof valuesregis>;
   export type Loginschema = z.infer<typeof values>;
   
@@ -22,6 +23,17 @@
       return useMutation({
           mutationFn : async (data : Loginschema) => {
                return await Makecallapi.post(`api/login`, data)
+          },
+          onSuccess : (Response) => {
+               try {
+                 localStorage.setItem("token", Response.data.token);
+                 Validate();
+               } catch (error) {
+                  // throw handling nya 
+               }
           }
       })
   }
+
+
+  

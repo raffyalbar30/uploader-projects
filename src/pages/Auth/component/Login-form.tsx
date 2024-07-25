@@ -5,18 +5,21 @@ import { SiGithub } from "react-icons/si";
 import { Loginschema, useLogin, values } from "../../../services/auth-services";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 
 
 const LoginForm = () => {
-
-    const { register, handleSubmit } = useForm<Loginschema>({
+    const Navigation = useNavigate();
+    const { register, handleSubmit, reset } = useForm<Loginschema>({
          resolver : zodResolver(values),
     });
      const {mutateAsync : Login} = useLogin();
      const onSumbit = handleSubmit( async (e) => {
           try {
+              reset();
               await Login(e);
+              Navigation("/user");
           } catch (error) {
               console.log(error);
           }

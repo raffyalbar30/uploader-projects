@@ -1,5 +1,5 @@
-import Benner from './Auth/component/benner';
-import RegisterForm from './Auth/component/Register-form';
+import Benner from './component/benner';
+import RegisterForm from './component/Register-form';
 
 const Registerpage = () => {
     return (
