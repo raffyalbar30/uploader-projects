@@ -1,4 +1,4 @@
-import { IoEyeSharp } from "react-icons/io5";
+import { IoEyeSharp,IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { SiFacebook } from "react-icons/si";
 import { SiGithub } from "react-icons/si";
@@ -6,14 +6,22 @@ import { Loginschema, useLogin, values } from "../../../services/auth-services";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const LoginForm = () => {
     const Navigation = useNavigate();
-    const { register, handleSubmit, reset } = useForm<Loginschema>({
-         resolver : zodResolver(values),
+    const { register, handleSubmit, reset, formState } = useForm<Loginschema>({
+        resolver : zodResolver(values),
     });
+
+     const [view,setview] = useState(false);
+      const handleview = () => {
+         setview(!view);
+      }
+
      const {mutateAsync : Login} = useLogin();
      const onSumbit = handleSubmit( async (e) => {
           try {
@@ -26,34 +34,38 @@ const LoginForm = () => {
          
      });
     return (
-        <div className=" bg-slate-100 shadow-lg  w-full h-full p-4">
+        <div className=" bg-slate-100 shadow-lg rounded-r-md w-full h-full p-4">
             <div className="ml-2">
                 <p className="text-slate-950 font-bold text-left ml-2 text-4xl pb-1">Login</p>
-                 <p className="text-[12px] ml-1 text-slate-950 font-semibold">Don't have an account ? <span className="text-purple-800 font-semibold">Create account now</span> </p>
+                 <p className="text-[12px] ml-2 text-slate-950 font-semibold">Don't have an account ? <Link to={"Register"}><span className="text-purple-800 font-semibold">Create account now</span> </Link></p>
             </div>
             <div className="mt-12">
             <form action="" onSubmit={onSumbit}>
-                <div className="border-b w-full border-purple-600">
+                <div className={`border-b w-full ${formState.errors?.email ? "border-red-600" : "border-purple-600"}`}>
                  <input  
-                 className="appearance-none bg-transparent w-full text-gray-700 mr-3 font-semibold py-1 px-2 placeholder:text-gray-400 leading-tight focus:outline-none" 
+                 className= {`appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 px-2 placeholder:text-gray-400 leading-tight focus:outline-none`}
                  type="text" placeholder="example@gmail.com" 
                  aria-label="Full name"
                  {...register("email")}
                  />  
                 </div>
-                <div className="border-b w-full border-purple-600 mt-8">
+                 {formState.errors?.email && <p className="text-[13px] mt-1 ml-2 text-red-500">{formState.errors.email.message}</p>}
+                <div className={`border-b w-full ${formState.errors?.password? "border-red-600" : "border-purple-600"} mt-8`}>
                  <div className="flex justify- items-center">
                   <input  
                  className="appearance-none bg-transparent w-full text-gray-700 mr-3 font-semibold py-1 px-2 placeholder:text-gray-400 leading-tight focus:outline-none" 
-                 type="text" placeholder="Password" 
+                 type={view ? "text" : "password"} placeholder="Password" 
                  aria-label="Full name"
                  {...register("password")}
                  />  
-                 <span className="text-gray-400 text-[18px] cursor-pointer">
-                   <IoEyeSharp />
+                 <span className="text-gray-400 text-[18px] cursor-pointer" onClick={handleview}>
+                    {
+                        view ?  <IoEyeSharp /> : <IoEyeOff /> 
+                    }
                  </span>
                 </div>
                 </div>
+                {formState.errors?.password && <p className="text-[13px] mt-1 ml-2 text-red-500">{formState.errors.password.message}</p>}
                 <div className="flex justify-between w-full mt-4">
                    <div className="flex gap-x-1 items-center">
                     <input type="checkbox" id="rememberme" className="bg-transparent border border-slate-800"/>

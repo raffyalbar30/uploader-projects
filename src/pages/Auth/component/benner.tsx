@@ -2,7 +2,7 @@
    const Benner = () => {
     return (
         <div className="w-full h-full relative">
-            <img src="/img/auth.png" alt="" />
+            <img src="/img/auth.png" alt="" className="rounded-l-md" />
         </div>
     );
 }

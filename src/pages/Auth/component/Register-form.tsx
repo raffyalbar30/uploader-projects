@@ -18,7 +18,7 @@ const RegisterForm = () => {
         <div className=" bg-slate-100 shadow-lg  w-full h-full p-4">
             <div className="ml-2">
                 <p className="text-slate-950 font-bold text-left ml-2 text-4xl pb-1">Register</p>
-                <p className="text-[12px] text-slate-950 font-semibold mr-12">You have an account ? <span className="text-purple-800 font-semibold">Sign up now</span></p>
+                <p className="text-[12px] text-slate-950 font-semibold ml-2">You have an account ? <span className="text-purple-800 font-semibold">Sign up now</span></p>
             </div>
             <div className="mt-12">
             <form action="" onSubmit={onSumbit}>
