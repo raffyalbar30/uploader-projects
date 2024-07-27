@@ -11,9 +11,9 @@
   });
 
   export const valuesregis = z.object ({
-    email : z.string().min(3, "email minimum 3 character").max(20, "enambelas char"),
-    password : z.string().min(8, "char password"),
-    confirm :  z.string().min(8, "char password")
+    email : z.string().email("email is invalid").max(24, "maximum email 24 character"),
+    password : z.string().min(8, "minimum 8 characters"),
+    confirm :  z.string().min(8, "minimum 8 characters")
   })
 
   export type Registerschema = z.infer<typeof valuesregis>;
