@@ -2,3 +2,12 @@
   background: rgb(147,51,234);
   background: linear-gradient(56deg, rgba(147,51,234,1) 51%, rgba(240,240,240,1) 79%);
  }  
+
+ #homepage{
+  background: rgb(113,9,208);
+  background: linear-gradient(56deg, rgba(113,9,208,1) 23%, rgba(240,240,240,1) 89%);
+ }
+
+ :root {
+    background-color :  #EEEDEB;
+ }

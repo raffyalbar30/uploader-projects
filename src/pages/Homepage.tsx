@@ -1,15 +1,21 @@
-import DialogDemo from "../Components/Modal/Modals";
-import Search from "../Components/UI/Search";
+import Benner from "../Components/Bener/Benner";
+import Navbarlist from "../Components/Navbar/components/Navbarlist";
+
+
 
 
 const Homepage = () => {
     return (
+        //--------------- userpages -------------------//
         <>
-         <Search/>
+        <div id="homepage" className="w-full h-screen">
          <div className="z-20">
-        <DialogDemo/>
+          <Navbarlist />
+          <Benner></Benner>
+        </div>
         </div>
         </>
+          //--------------- userpages -------------------//
     );
 }
 

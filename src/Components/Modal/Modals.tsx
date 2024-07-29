@@ -12,13 +12,13 @@ import { IoCloudUploadOutline } from "react-icons/io5";
  
   <Dialog.Root>
     <Dialog.Trigger asChild className='fixed bottom-5 right-8 '>
-       <div className="bg-gray-700 p-3 rounded-full z-0">
+       <div className="bg-slate-300 shadow-md p-3 rounded-full z-0">
           <IoCloudUpload className="text-2xl"/>
      </div>
     </Dialog.Trigger>
     <Dialog.Portal>
       <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed z-10" />
-      <Dialog.Content className=" z-10 data-[state=open]:animate-contentShow fixed mt-10 top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] p-[25px] bg-zinc-800 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+      <Dialog.Content className=" z-10 data-[state=open]:animate-contentShow fixed mt-10 top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] p-[25px] bg-slate-50 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
         <Dialog.Title className="text-mauve12 m-0 text-[17px] font-medium">
            Add your stories
         </Dialog.Title>
@@ -46,7 +46,7 @@ import { IoCloudUploadOutline } from "react-icons/io5";
           />
         </fieldset>
         <div className='flex justify-center mt-4'>
-          <div className='border-dashed border w-full flex-wrap p-4'>
+          <div className='border-dashed border border-slate-500 w-full flex-wrap p-4'>
             <label htmlFor="" className='cursor-pointer'>
               <IoCloudUploadOutline className='mx-auto text-4xl' />
               <input className='absolute h-16 flex justify-center opacity-0 cursor-pointer' type="file" name="" id="dragzone-file"/>
@@ -57,7 +57,7 @@ import { IoCloudUploadOutline } from "react-icons/io5";
         </div>
         <div className="mt-[25px] flex justify-end">
           <Dialog.Close asChild>
-            <button className="bg-slate-600 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+            <button className="bg-slate-300 text-green11 font-Poppins hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
               Save changes
             </button>
           </Dialog.Close>

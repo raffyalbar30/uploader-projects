@@ -1,14 +1,15 @@
 import { ReactNode } from "react";
 
 type button = {
+    className : string;
     children : ReactNode;
 }
-const Button = (props: button) => {
+const Button = ({className, children} : button) => {
     return (
         <button 
-        className="w-full bg-gray-700 text-xl py-1 rounded-lg cursor-pointer"
+        className={`w-[120px] bg-purple-600  ${className} py-1 rounded-full cursor-pointer`}
         type="submit"
-        >{props.children}</button> 
+        >{children}</button> 
     );
 }
 
