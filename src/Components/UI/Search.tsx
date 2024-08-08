@@ -5,6 +5,7 @@ import { IoIosSearch } from "react-icons/io";
     handleclick : ()=> void
   }
 
+
 const Search: React.FC<propsState> = ({setgetInputs, handleclick}) => {
     return (
         <div className="flex justify-center ">

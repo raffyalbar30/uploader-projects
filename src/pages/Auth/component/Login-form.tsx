@@ -73,7 +73,7 @@ const LoginForm = () => {
                    </div>
                   <span className="text-purple-800 text-[12px] font-bold cursor-pointer">Forget password?</span>
                 </div>
-                <button type="submit" className="cursor-pointer text-gray-200 font-semibold bg-purple-700 mt-9 w-full py-2 rounded-md text-lg">
+                <button type="submit" className="cursor-pointer text-gray-200 font-semibold  bg-purple-700 mt-9 w-full py-2 rounded-md text-lg">
                     Sign Up Now
                 </button>
             </form>
