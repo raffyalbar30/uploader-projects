@@ -1,3 +1,5 @@
+ 
+ //set up axios client for fecthing data
  import axios from "axios";
  //  Todo env
  const endpoint = "https://reqres.in/";
